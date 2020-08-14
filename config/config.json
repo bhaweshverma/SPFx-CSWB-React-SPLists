@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "share-point-lists-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/sharePointLists/SharePointListsWebPart.js",
+          "manifest": "./src/webparts/sharePointLists/SharePointListsWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "sp-init":{
+      "path": "https://gtlawhub.sharepoint.com/sites/developersite/_layouts/15/init.js",
+      "globalName": "$_global_init"
+    },
+    "microsoft-ajax":{
+      "path": "https://gtlawhub.sharepoint.com/sites/developersite/_layouts/15/MicrosoftAjax.js",
+      "globalName": "Sys",
+      "globalDependencies": [
+        "sp-init"
+      ]
+    },
+    "sp-runtime":{
+      "path": "https://gtlawhub.sharepoint.com/sites/developersite/_layouts/15/SP.Runtime.js",
+      "globalName": "SP",
+      "globalDependencies": [
+        "microsoft-ajax"
+      ]
+    },
+    "sharepoint":{
+      "path": "https://gtlawhub.sharepoint.com/sites/developersite/_layouts/15/SP.js",
+      "globalName": "SP",
+      "globalDependencies": [
+        "sp-runtime"
+      ]
+    }
+  },
+  "localizedResources": {
+    "SharePointListsWebPartStrings": "lib/webparts/sharePointLists/loc/{locale}.js"
+  }
+}
